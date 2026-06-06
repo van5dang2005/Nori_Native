@@ -1,0 +1,8 @@
+{
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "name": "Remix: Nori Group",
+  "description": "Premium Enterprise Logging & Customer Intelligence"
+}
