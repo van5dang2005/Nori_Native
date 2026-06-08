@@ -10,6 +10,7 @@ import NotificationPanel from '@/src/components/NotificationPanel';
 import TeamChatView from '@/src/components/TeamChatView';
 import SearchResultsView from '@/src/components/SearchResultsView';
 import PersonalNotesView from '@/src/components/PersonalNotesView';
+import PipelineView from '@/src/components/PipelineView';
 import ChannelModal from '@/src/components/ChannelModal';
 import LoadingOverlay from '@/src/components/LoadingOverlay';
 import { useNotificationsMessages } from '@/src/hooks/useNotifications';
@@ -48,7 +49,7 @@ const DashboardScreen: React.FC = () => {
   const { data: notificationsMessagesData, isLoading: isLoadingNotifications } = useNotificationsMessages();
   const [currentUserRole, setCurrentUserRole] = useState<UserRole>(role);
   const [currentUserId, setCurrentUserId] = useState<string>(current_user_id);
-  const [activeView, setActiveView] = useState<'home' | 'customers' | 'team-chat' | 'search' | 'all-customers' | 'personal-notes'>('home');
+  const [activeView, setActiveView] = useState<'home' | 'customers' | 'team-chat' | 'search' | 'all-customers' | 'personal-notes' | 'pipeline'>('home');
   const [activeFilter, setActiveFilter] = useState<'none' | 'urgent' | 'deadlines' | 'all-logs' | 'pinned' | 'health'>('none');
   const [customers, setCustomers] = useState<Customer[]>(customersData || []);
   const [teamMembers, setTeamMembers] = useState<TeamMember[] | null>(usersData || []);
@@ -587,6 +588,14 @@ const DashboardScreen: React.FC = () => {
           )}
           {activeView === 'personal-notes' && (
             <NotesPage customers={visibleCustomers} currentUserId={currentUserId} onSelectLog={(cid, lid) => { setSelectedCustomerId(cid); setScrolledLogId(lid); setActiveView('customers'); }} language={language} />
+          )}
+          {activeView === 'pipeline' && (
+            <PipelineView
+              teamMembers={teamMembers?.filter(m => !m.isArchived) || []}
+              customers={visibleCustomers}
+              language={language}
+              currentUserId={currentUserId}
+            />
           )}
         </View>
       </View>

@@ -128,6 +128,8 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     replying_to_original_note: 'Replying to original note',
     describe_situational_response: 'Describe situational response...',
     select_personnel: 'Select Personnel',
+    pipeline: 'Pipeline',
+    pipelineDesc: 'Track work across stages',
   },
   vi: {
     dashboard: 'Bảng điều khiển',
@@ -255,6 +257,8 @@ export const TRANSLATIONS: Record<Language, Record<string, string>> = {
     replying_to_original_note: 'Trả lời ghi chú gốc',
     describe_situational_response: 'Mô tả phản ứng tình huống...',
     select_personnel: 'Chọn nhân sự',
+    pipeline: 'Pipeline',
+    pipelineDesc: 'Theo dõi công việc theo giai đoạn',
   }
 };
 

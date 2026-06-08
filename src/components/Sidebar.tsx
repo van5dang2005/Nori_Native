@@ -12,8 +12,8 @@ interface SidebarProps {
   customers: Customer[];
   selectedId: string;
   onSelect: (id: string) => void;
-  activeView: 'home' | 'customers' | 'team-chat' | 'all-customers' | 'search' | 'personal-notes';
-  onViewChange: (view: 'home' | 'customers' | 'team-chat' | 'all-customers' | 'search' | 'personal-notes') => void;
+  activeView: 'home' | 'customers' | 'team-chat' | 'all-customers' | 'search' | 'personal-notes' | 'pipeline';
+  onViewChange: (view: 'home' | 'customers' | 'team-chat' | 'all-customers' | 'search' | 'personal-notes' | 'pipeline') => void;
   teamMembers: TeamMember[];
   channels: ChatChannel[];
   activeChatTargetId: string;
@@ -212,7 +212,14 @@ const Sidebar: React.FC<SidebarProps> = ({
             >
               <Text style={[styles.navText, activeView === 'personal-notes' && styles.activeNavText]}>{t('personalNotes')}</Text>
             </TouchableOpacity>
-
+            <TouchableOpacity 
+              onPress={() => onViewChange('pipeline')} 
+              style={[styles.navItem, activeView === 'pipeline' && styles.activeNavItem]}
+            >
+              <Text style={[styles.navText, activeView === 'pipeline' && styles.activeNavText]}>
+                Pipeline
+              </Text>
+            </TouchableOpacity>
             {prefs.order.map(groupId => renderGroup(groupId))}
           </View>
         )}
