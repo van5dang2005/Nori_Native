@@ -6,26 +6,20 @@
     "start": "env-cmd -f .env.development expo start --port 3000",
     "start:beta": "env-cmd -f .env.beta expo start --port 3000",
     "start:prod": "env-cmd -f .env.production expo start --port 3000",
-    
     "android": "env-cmd -f .env.development expo run:android",
     "android:beta": "env-cmd -f .env.beta expo run:android",
     "android:prod": "env-cmd -f .env.production expo run:android",
-
     "ios": "env-cmd -f .env.development expo run:ios",
     "ios:beta": "env-cmd -f .env.beta expo run:ios",
     "ios:prod": "env-cmd -f .env.production expo run:ios",
-
     "web": "env-cmd -f .env.development expo start --web --port 3000",
-
     "build:web": "env-cmd -f .env.production expo export --platform web",
     "build:android": "env-cmd -f .env.development eas build -p android --profile development --local",
     "build:android:beta": "env-cmd -f .env.beta eas build -p android --profile preview --local",
     "build:android:prod": "env-cmd -f .env.production eas build -p android --profile production --local",
-
     "build:ios": "env-cmd -f .env.development eas build -p ios --profile development --local",
     "build:ios:beta": "env-cmd -f .env.beta eas build -p ios --profile preview --local",
     "build:ios:prod": "env-cmd -f .env.production eas build -p ios --profile production --local",
-    
     "lint": "tsc --noEmit"
   },
   "dependencies": {
@@ -51,6 +45,9 @@
     "react-dom": "19.1.0",
     "react-native": "0.81.5",
     "react-native-dotenv": "^3.4.11",
+    "react-native-draggable-flatlist": "^4.0.3",
+    "react-native-gesture-handler": "~2.28.0",
+    "react-native-reanimated": "~4.1.1",
     "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0",
     "react-native-svg": "15.12.1",
